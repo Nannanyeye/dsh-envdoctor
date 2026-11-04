@@ -1,0 +1,775 @@
+[
+  {
+    "exe": "7z.exe",
+    "prefer": "\\\\7-Zip\\\\7z\\.exe$",
+    "bindir": [
+      "{root}\\7zip"
+    ],
+    "kind": "exe",
+    "strip": 0,
+    "target": "{root}\\7zip",
+    "versions": {
+      "stable": "24.08",
+      "presets": [
+        "24.08",
+        "23.01",
+        "22.01"
+      ]
+    },
+    "resolve": {
+      "type": "github",
+      "repo": "ip7z/7zip",
+      "asset": "7z*-x64.exe",
+      "tag": "{v}",
+      "dlName": "7z-installer.exe"
+    },
+    "note": "安装器静默装到 {root}",
+    "category": "基础",
+    "desc": "压缩解压工具",
+    "extraDirs": [],
+    "id": "7zip",
+    "name": "7-Zip",
+    "installArgs": [
+      "/S",
+      "/D={target}"
+    ]
+  },
+  {
+    "exe": "node.exe",
+    "prefer": "nodejs\\\\node\\.exe$",
+    "bindir": [
+      "{root}\\node",
+      "{root}\\node\\node_modules\\npm\\bin"
+    ],
+    "kind": "zip",
+    "strip": 1,
+    "target": "{root}\\node",
+    "versions": {
+      "stable": "22.11.0",
+      "presets": [
+        "22.11.0",
+        "20.18.1",
+        "18.20.5"
+      ]
+    },
+    "resolve": {
+      "type": "url",
+      "url": "https://nodejs.org/dist/v{v}/node-v{v}-win-x64.zip"
+    },
+    "note": "",
+    "category": "基础",
+    "desc": "JavaScript 运行时",
+    "extraDirs": [],
+    "id": "node",
+    "name": "Node.js"
+  },
+  {
+    "exe": "python.exe",
+    "prefer": "Python3\\d*\\\\python\\.exe$",
+    "bindir": [
+      "{root}\\python",
+      "{root}\\python\\Scripts"
+    ],
+    "kind": "exe",
+    "strip": 0,
+    "target": "{root}\\python",
+    "versions": {
+      "stable": "3.12.10",
+      "presets": [
+        "3.12.10",
+        "3.11.9",
+        "3.13.0"
+      ]
+    },
+    "resolve": {
+      "type": "url",
+      "url": "https://www.python.org/ftp/python/{v}/python-{v}-amd64.exe",
+      "dlName": "python-setup.exe"
+    },
+    "note": "静默安装到 {root}\\python",
+    "category": "基础",
+    "desc": "Python 解释器",
+    "extraDirs": [],
+    "id": "python",
+    "name": "Python",
+    "installArgs": [
+      "/quiet",
+      "InstallAllUsers=0",
+      "PrependPath=1",
+      "Include_pip=1",
+      "TargetDir={target}"
+    ]
+  },
+  {
+    "exe": "git.exe",
+    "prefer": "Git\\\\(cmd|bin)\\\\git\\.exe$",
+    "bindir": [
+      "{root}\\git\\cmd",
+      "{root}\\git\\bin"
+    ],
+    "kind": "7zexe",
+    "strip": 0,
+    "target": "{root}\\git",
+    "versions": {
+      "stable": "latest"
+    },
+    "resolve": {
+      "type": "github",
+      "repo": "git-for-windows/git",
+      "asset": "PortableGit-*-64-bit.7z.exe",
+      "tag": ""
+    },
+    "note": "便携版自解压",
+    "category": "基础",
+    "desc": "版本控制",
+    "extraDirs": [],
+    "id": "git",
+    "name": "Git"
+  },
+  {
+    "exe": "ffmpeg.exe",
+    "prefer": "ffmpeg[^\\\\]*\\\\bin\\\\ffmpeg\\.exe$",
+    "bindir": [
+      "{root}\\ffmpeg\\bin"
+    ],
+    "kind": "zip",
+    "strip": 1,
+    "target": "{root}\\ffmpeg",
+    "versions": {
+      "stable": "release"
+    },
+    "resolve": {
+      "type": "url",
+      "url": "https://www.gyan.dev/ffmpeg/builds/ffmpeg-{v}-essentials.zip"
+    },
+    "note": "",
+    "category": "基础",
+    "desc": "音视频处理",
+    "extraDirs": [],
+    "id": "ffmpeg",
+    "name": "ffmpeg"
+  },
+  {
+    "exe": "pwsh.exe",
+    "prefer": "pwsh\\\\pwsh\\.exe$",
+    "bindir": [
+      "{root}\\pwsh"
+    ],
+    "kind": "zip",
+    "strip": 0,
+    "target": "{root}\\pwsh",
+    "versions": {
+      "stable": "7.4.6",
+      "presets": [
+        "7.4.6",
+        "7.2.24"
+      ]
+    },
+    "resolve": {
+      "type": "github",
+      "repo": "PowerShell/PowerShell",
+      "asset": "PowerShell-*-win-x64.zip",
+      "tag": "v{v}"
+    },
+    "note": "",
+    "category": "基础",
+    "desc": "现代终端，UTF-8 友好",
+    "extraDirs": [],
+    "id": "pwsh",
+    "name": "PowerShell 7"
+  },
+  {
+    "exe": "uv.exe",
+    "prefer": "uv\\\\uv\\.exe$",
+    "bindir": [
+      "{root}\\uv"
+    ],
+    "kind": "zip",
+    "strip": 0,
+    "target": "{root}\\uv",
+    "versions": {
+      "stable": "0.5.11"
+    },
+    "resolve": {
+      "type": "github",
+      "repo": "astral-sh/uv",
+      "asset": "uv-x86_64-pc-windows-msvc.zip",
+      "tag": "{v}"
+    },
+    "note": "",
+    "category": "基础",
+    "desc": "Python 包管理器（极快）",
+    "extraDirs": [],
+    "id": "uv",
+    "name": "uv"
+  },
+  {
+    "exe": "jq.exe",
+    "prefer": "jq\\.exe$",
+    "bindir": [
+      "{root}\\jq"
+    ],
+    "kind": "single",
+    "strip": 0,
+    "target": "{root}\\jq",
+    "versions": {
+      "stable": "1.7.1"
+    },
+    "resolve": {
+      "type": "github",
+      "repo": "jqlang/jq",
+      "asset": "jq-windows-amd64.exe",
+      "tag": "jq-{v}",
+      "dlName": "jq.exe"
+    },
+    "note": "",
+    "category": "命令行",
+    "desc": "JSON 处理",
+    "extraDirs": [],
+    "id": "jq",
+    "name": "jq"
+  },
+  {
+    "exe": "rg.exe",
+    "prefer": "ripgrep[^\\\\]*\\\\rg\\.exe$",
+    "bindir": [
+      "{root}\\ripgrep"
+    ],
+    "kind": "zip",
+    "strip": 1,
+    "target": "{root}\\ripgrep",
+    "versions": {
+      "stable": "14.1.1"
+    },
+    "resolve": {
+      "type": "github",
+      "repo": "BurntSushi/ripgrep",
+      "asset": "ripgrep-*-x86_64-pc-windows-msvc.zip",
+      "tag": "{v}"
+    },
+    "note": "",
+    "category": "命令行",
+    "desc": "极速文本搜索",
+    "extraDirs": [],
+    "id": "ripgrep",
+    "name": "ripgrep"
+  },
+  {
+    "exe": "fd.exe",
+    "prefer": "fd[^\\\\]*\\\\fd\\.exe$",
+    "bindir": [
+      "{root}\\fd"
+    ],
+    "kind": "zip",
+    "strip": 1,
+    "target": "{root}\\fd",
+    "versions": {
+      "stable": "10.2.0"
+    },
+    "resolve": {
+      "type": "github",
+      "repo": "sharkdp/fd",
+      "asset": "fd-v*-x86_64-pc-windows-msvc.zip",
+      "tag": "v{v}"
+    },
+    "note": "",
+    "category": "命令行",
+    "desc": "替代 find",
+    "extraDirs": [],
+    "id": "fd",
+    "name": "fd"
+  },
+  {
+    "exe": "bat.exe",
+    "prefer": "bat[^\\\\]*\\\\bat\\.exe$",
+    "bindir": [
+      "{root}\\bat"
+    ],
+    "kind": "zip",
+    "strip": 1,
+    "target": "{root}\\bat",
+    "versions": {
+      "stable": "0.24.0"
+    },
+    "resolve": {
+      "type": "github",
+      "repo": "sharkdp/bat",
+      "asset": "bat-v*-x86_64-pc-windows-msvc.zip",
+      "tag": "v{v}"
+    },
+    "note": "",
+    "category": "命令行",
+    "desc": "带高亮的 cat",
+    "extraDirs": [],
+    "id": "bat",
+    "name": "bat"
+  },
+  {
+    "exe": "fzf.exe",
+    "prefer": "fzf[^\\\\]*\\\\fzf\\.exe$",
+    "bindir": [
+      "{root}\\fzf"
+    ],
+    "kind": "zip",
+    "strip": 0,
+    "target": "{root}\\fzf",
+    "versions": {
+      "stable": "0.57.0"
+    },
+    "resolve": {
+      "type": "github",
+      "repo": "junegunn/fzf",
+      "asset": "fzf-*windows_amd64.zip",
+      "tag": "v{v}"
+    },
+    "note": "",
+    "category": "命令行",
+    "desc": "模糊查找",
+    "extraDirs": [],
+    "id": "fzf",
+    "name": "fzf"
+  },
+  {
+    "exe": "java.exe",
+    "prefer": "jdk-21[^\\\\]*\\\\bin\\\\java\\.exe$",
+    "bindir": [
+      "{root}\\jdk-21\\bin"
+    ],
+    "kind": "zip",
+    "strip": 1,
+    "target": "{root}\\jdk-21",
+    "versions": {
+      "stable": "21"
+    },
+    "resolve": {
+      "type": "github",
+      "repo": "adoptium/temurin21-binaries",
+      "asset": "OpenJDK21U-jdk_x64_windows_hotspot_*.zip",
+      "tag": "",
+      "dlName": "jdk21.zip"
+    },
+    "note": "Adoptium Temurin 最新 21.x",
+    "category": "开发",
+    "desc": "Java 21 LTS",
+    "extraDirs": [],
+    "id": "jdk21",
+    "name": "JDK 21"
+  },
+  {
+    "exe": "java.exe",
+    "prefer": "jdk-17[^\\\\]*\\\\bin\\\\java\\.exe$",
+    "bindir": [
+      "{root}\\jdk-17\\bin"
+    ],
+    "kind": "zip",
+    "strip": 1,
+    "target": "{root}\\jdk-17",
+    "versions": {
+      "stable": "17"
+    },
+    "resolve": {
+      "type": "github",
+      "repo": "adoptium/temurin17-binaries",
+      "asset": "OpenJDK17U-jdk_x64_windows_hotspot_*.zip",
+      "tag": "",
+      "dlName": "jdk17.zip"
+    },
+    "note": "",
+    "category": "开发",
+    "desc": "Java 17 LTS",
+    "extraDirs": [],
+    "id": "jdk17",
+    "name": "JDK 17"
+  },
+  {
+    "exe": "go.exe",
+    "prefer": "go\\\\bin\\\\go\\.exe$",
+    "bindir": [
+      "{root}\\go\\bin"
+    ],
+    "kind": "zip",
+    "strip": 1,
+    "target": "{root}\\go",
+    "versions": {
+      "stable": "1.23.4",
+      "presets": [
+        "1.23.4",
+        "1.22.10"
+      ]
+    },
+    "resolve": {
+      "type": "url",
+      "url": "https://go.dev/dl/go{v}.windows-amd64.zip"
+    },
+    "note": "",
+    "category": "开发",
+    "desc": "Go 语言",
+    "extraDirs": [],
+    "id": "go",
+    "name": "Go"
+  },
+  {
+    "exe": "mvn.cmd",
+    "prefer": "maven[^\\\\]*\\\\bin\\\\mvn\\.cmd$",
+    "bindir": [
+      "{root}\\maven\\bin"
+    ],
+    "kind": "zip",
+    "strip": 1,
+    "target": "{root}\\maven",
+    "versions": {
+      "stable": "3.9.9",
+      "presets": [
+        "3.9.9",
+        "3.9.6"
+      ]
+    },
+    "resolve": {
+      "type": "url",
+      "url": "https://archive.apache.org/dist/maven/maven-3/{v}/binaries/apache-maven-{v}-bin.zip",
+      "stripDirPrefix": "apache-maven-"
+    },
+    "note": "",
+    "category": "开发",
+    "desc": "Java 构建",
+    "extraDirs": [],
+    "id": "maven",
+    "name": "Maven"
+  },
+  {
+    "exe": "gradle.bat",
+    "prefer": "gradle[^\\\\]*\\\\bin\\\\gradle\\.bat$",
+    "bindir": [
+      "{root}\\gradle\\bin"
+    ],
+    "kind": "zip",
+    "strip": 1,
+    "target": "{root}\\gradle",
+    "versions": {
+      "stable": "8.11.1"
+    },
+    "resolve": {
+      "type": "github",
+      "repo": "gradle/gradle-distributions",
+      "asset": "gradle-{v}-bin.zip",
+      "tag": "v{v}"
+    },
+    "note": "",
+    "category": "开发",
+    "desc": "Java 构建",
+    "extraDirs": [],
+    "id": "gradle",
+    "name": "Gradle"
+  },
+  {
+    "exe": "mysql.exe",
+    "prefer": "mysql[^\\\\]*\\\\bin\\\\mysql\\.exe$",
+    "bindir": [
+      "{root}\\mysql\\bin"
+    ],
+    "kind": "zip",
+    "strip": 1,
+    "target": "{root}\\mysql",
+    "versions": {
+      "stable": "8.4.3",
+      "presets": [
+        "8.4.3",
+        "8.0.40"
+      ]
+    },
+    "resolve": {
+      "type": "url",
+      "url": "https://dev.mysql.com/get/Downloads/MySQL-8.4/mysql-{v}-winx64.zip"
+    },
+    "note": "仅解压，服务需自行 mysqld --initialize 后注册",
+    "category": "数据库",
+    "desc": "关系型数据库（解压版，不含服务）",
+    "extraDirs": [],
+    "id": "mysql",
+    "name": "MySQL 8.4"
+  },
+  {
+    "exe": "psql.exe",
+    "prefer": "pgsql\\\\bin\\\\psql\\.exe$",
+    "bindir": [
+      "{root}\\pgsql\\bin"
+    ],
+    "kind": "zip",
+    "strip": 1,
+    "target": "{root}\\pgsql",
+    "versions": {
+      "stable": "16.6"
+    },
+    "resolve": {
+      "type": "url",
+      "url": "https://get.enterprisedb.com/postgresql/postgresql-{v}-1-windows-x64-binaries.zip"
+    },
+    "note": "仅解压，需 initdb 后才能用",
+    "category": "数据库",
+    "desc": "关系型数据库（解压版）",
+    "extraDirs": [],
+    "id": "postgres",
+    "name": "PostgreSQL 16"
+  },
+  {
+    "exe": "redis-server.exe",
+    "prefer": "[Rr]edis[^\\\\]*\\\\redis-server\\.exe$",
+    "bindir": [
+      "{root}\\redis"
+    ],
+    "kind": "zip",
+    "strip": 0,
+    "target": "{root}\\redis",
+    "versions": {
+      "stable": "5.0.14.1"
+    },
+    "resolve": {
+      "type": "github",
+      "repo": "tporadowski/redis",
+      "asset": "Redis-x64-*.zip",
+      "tag": "v{v}"
+    },
+    "note": "Windows 版由社区移植；仅解压不注册服务",
+    "category": "数据库",
+    "desc": "内存数据库（Windows 移植版）",
+    "extraDirs": [],
+    "id": "redis",
+    "name": "Redis"
+  },
+  {
+    "exe": "sqlite3.exe",
+    "prefer": "sqlite[^\\\\]*\\\\sqlite3\\.exe$",
+    "bindir": [
+      "{root}\\sqlite"
+    ],
+    "kind": "zip",
+    "strip": 0,
+    "target": "{root}\\sqlite",
+    "versions": {
+      "stable": "3470000"
+    },
+    "resolve": {
+      "type": "url",
+      "url": "https://www.sqlite.org/2024/sqlite-tools-win-x64-{v}.zip"
+    },
+    "note": "",
+    "category": "数据库",
+    "desc": "单文件数据库",
+    "extraDirs": [],
+    "id": "sqlite",
+    "name": "SQLite"
+  },
+  {
+    "exe": "nmap.exe",
+    "prefer": "[Nn]map\\\\nmap\\.exe$",
+    "bindir": [
+      "{root}\\nmap"
+    ],
+    "kind": "exe",
+    "strip": 1,
+    "target": "{root}\\nmap",
+    "versions": {
+      "stable": "7.95"
+    },
+    "resolve": {
+      "type": "url",
+      "url": "https://nmap.org/dist/nmap-{v}-setup.exe",
+      "dlName": "nmap-setup.exe"
+    },
+    "note": "",
+    "category": "网络",
+    "desc": "网络扫描",
+    "extraDirs": [],
+    "id": "nmap",
+    "name": "Nmap",
+    "installArgs": [
+      "/S",
+      "/D={target}"
+    ]
+  },
+  {
+    "exe": "kubectl.exe",
+    "prefer": "kubectl\\.exe$",
+    "bindir": [
+      "{root}\\kubectl"
+    ],
+    "kind": "single",
+    "strip": 0,
+    "target": "{root}\\kubectl",
+    "versions": {
+      "stable": "1.31.3",
+      "presets": [
+        "1.31.3",
+        "1.30.7",
+        "1.29.11"
+      ]
+    },
+    "resolve": {
+      "type": "url",
+      "url": "https://dl.k8s.io/release/v{v}/bin/windows/amd64/kubectl.exe",
+      "dlName": "kubectl.exe"
+    },
+    "note": "",
+    "category": "网络",
+    "desc": "Kubernetes CLI",
+    "extraDirs": [],
+    "id": "kubectl",
+    "name": "kubectl"
+  },
+  {
+    "exe": "helm.exe",
+    "prefer": "helm\\.exe$",
+    "bindir": [
+      "{root}\\helm"
+    ],
+    "kind": "zip",
+    "strip": 1,
+    "target": "{root}\\helm",
+    "versions": {
+      "stable": "3.16.3"
+    },
+    "resolve": {
+      "type": "url",
+      "url": "https://get.helm.sh/helm-v{v}-windows-amd64.zip"
+    },
+    "note": "",
+    "category": "网络",
+    "desc": "Kubernetes 包管理",
+    "extraDirs": [],
+    "id": "helm",
+    "name": "Helm"
+  },
+  {
+    "exe": "gh.exe",
+    "prefer": "gh[^\\\\]*\\\\bin\\\\gh\\.exe$",
+    "bindir": [
+      "{root}\\gh\\bin"
+    ],
+    "kind": "zip",
+    "strip": 1,
+    "target": "{root}\\gh",
+    "versions": {
+      "stable": "2.62.0"
+    },
+    "resolve": {
+      "type": "github",
+      "repo": "cli/cli",
+      "asset": "gh_*_windows_amd64.zip",
+      "tag": "v{v}"
+    },
+    "note": "",
+    "category": "网络",
+    "desc": "命令行操作 GitHub",
+    "extraDirs": [],
+    "id": "gh",
+    "name": "GitHub CLI"
+  },
+  {
+    "exe": "magick.exe",
+    "prefer": "ImageMagick[^\\\\]*\\\\magick\\.exe$",
+    "bindir": [
+      "{root}\\imagemagick"
+    ],
+    "kind": "manual",
+    "strip": 1,
+    "target": "{root}\\imagemagick",
+    "versions": {
+      "stable": "7.1.1-43"
+    },
+    "resolve": null,
+    "note": "官方 archive/binaries 已 404，建议 winget install ImageMagick 或手动下载便携版",
+    "category": "媒体",
+    "desc": "图像处理套件",
+    "extraDirs": [],
+    "id": "imagemagick",
+    "name": "ImageMagick"
+  },
+  {
+    "exe": "pandoc.exe",
+    "prefer": "pandoc[^\\\\]*\\\\pandoc\\.exe$",
+    "bindir": [
+      "{root}\\pandoc"
+    ],
+    "kind": "zip",
+    "strip": 1,
+    "target": "{root}\\pandoc",
+    "versions": {
+      "stable": "latest"
+    },
+    "resolve": {
+      "type": "github",
+      "repo": "jgm/pandoc",
+      "asset": "pandoc-*windows-x86_64.zip",
+      "tag": ""
+    },
+    "note": "",
+    "category": "媒体",
+    "desc": "文档格式转换",
+    "extraDirs": [],
+    "id": "pandoc",
+    "name": "Pandoc"
+  },
+  {
+    "exe": "adb.exe",
+    "prefer": "platform-tools\\\\adb\\.exe$",
+    "bindir": [
+      "{root}\\platform-tools"
+    ],
+    "kind": "manual",
+    "strip": 0,
+    "target": "{root}\\platform-tools",
+    "versions": {
+      "stable": "35.0.2"
+    },
+    "resolve": null,
+    "note": "dl.google.com 国内不稳，建议手动下载 platform-tools 解压到该目录",
+    "category": "安全",
+    "desc": "Android 调试桥",
+    "extraDirs": [],
+    "id": "adb",
+    "name": "adb"
+  },
+  {
+    "exe": "chrome.exe",
+    "prefer": "chrome[^\\\\]*\\\\chrome\\.exe$",
+    "bindir": [
+      "{root}\\chrome"
+    ],
+    "kind": "chrome",
+    "strip": 1,
+    "target": "{root}\\chrome",
+    "versions": {
+      "stable": "latest"
+    },
+    "resolve": {
+      "type": "special",
+      "handler": "chrome"
+    },
+    "note": "",
+    "category": "安全",
+    "desc": "浏览器（用于自动化）",
+    "extraDirs": [],
+    "id": "chrome",
+    "name": "Chrome"
+  },
+  {
+    "exe": "ghidraRun.bat",
+    "prefer": "ghidra[^\\\\]*\\\\ghidraRun\\.bat$",
+    "bindir": [
+      "{root}\\ghidra"
+    ],
+    "kind": "manual",
+    "strip": 0,
+    "target": "{root}\\ghidra",
+    "versions": {
+      "stable": "12.1.4"
+    },
+    "resolve": null,
+    "note": "包体 ~400MB，建议手动从 ghidra-sre.org 下载后解压更名",
+    "category": "安全",
+    "desc": "逆向分析套件（需 JDK 21）",
+    "extraDirs": [],
+    "id": "ghidra",
+    "name": "Ghidra"
+  }
+]

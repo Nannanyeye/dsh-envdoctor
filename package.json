@@ -1,0 +1,55 @@
+{
+  "name": "dsh-envdoctor",
+  "version": "0.2.0",
+  "description": "环境体检：一键审计/安装 30 种开发工具，管理用户 PATH，支持环境分享码让团队配置一致",
+  "type": "module",
+  "license": "MIT",
+  "author": "Nannanyeye",
+  "main": "src/host.js",
+  "files": [
+    "src/",
+    "client/",
+    "data/",
+    "assets/",
+    "cordis.patch.yml",
+    "README.md"
+  ],
+  "exports": {
+    ".": "./src/host.js",
+    "./client": "./client/client.js",
+    "./cordis.patch.yml": "./cordis.patch.yml",
+    "./package.json": "./package.json"
+  },
+  "dsh": {
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    },
+    "client": {
+      "platform": "web",
+      "inject": [
+        "slots"
+      ],
+      "external": [
+        "react"
+      ]
+    }
+  },
+  "engines": {
+    "dsh": ">=0.2.1-rc.1 <0.2.2-0"
+  },
+  "keywords": [
+    "deepseek-harness",
+    "dsh",
+    "dsh-plugin",
+    "environment",
+    "installer",
+    "windows",
+    "toolchain",
+    "devsetup"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Nannanyeye/dsh-envdoctor"
+  },
+  "homepage": "https://github.com/Nannanyeye/dsh-envdoctor#readme"
+}

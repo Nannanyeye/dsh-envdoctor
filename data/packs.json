@@ -1,0 +1,106 @@
+[
+  {
+    "id": "base",
+    "name": "基础必备",
+    "desc": "任何开发都要",
+    "tools": [
+      "python",
+      "node",
+      "git",
+      "7zip",
+      "uv",
+      "pwsh"
+    ]
+  },
+  {
+    "id": "frontend",
+    "name": "前端",
+    "desc": "前端开发",
+    "tools": [
+      "base",
+      "chrome",
+      "jq",
+      "ripgrep"
+    ]
+  },
+  {
+    "id": "java",
+    "name": "Java 后端",
+    "desc": "Java 服务端",
+    "tools": [
+      "base",
+      "jdk21",
+      "maven",
+      "mysql"
+    ]
+  },
+  {
+    "id": "pydata",
+    "name": "Python 数据",
+    "desc": "数据分析/爬虫",
+    "tools": [
+      "base",
+      "jq",
+      "sqlite",
+      "imagemagick"
+    ]
+  },
+  {
+    "id": "cli",
+    "name": "命令行增强",
+    "desc": "把终端变强",
+    "tools": [
+      "base",
+      "jq",
+      "ripgrep",
+      "fd",
+      "bat",
+      "fzf"
+    ]
+  },
+  {
+    "id": "re",
+    "name": "逆向安全",
+    "desc": "分析/调试",
+    "tools": [
+      "base",
+      "adb",
+      "ghidra",
+      "nmap",
+      "ripgrep"
+    ]
+  },
+  {
+    "id": "media",
+    "name": "媒体处理",
+    "desc": "音视频/图片",
+    "tools": [
+      "base",
+      "ffmpeg",
+      "imagemagick",
+      "pandoc"
+    ]
+  },
+  {
+    "id": "k8s",
+    "name": "云原生",
+    "desc": "Kubernetes",
+    "tools": [
+      "base",
+      "kubectl",
+      "helm",
+      "gh"
+    ]
+  },
+  {
+    "id": "db",
+    "name": "数据库全家桶",
+    "desc": "本地起库调试",
+    "tools": [
+      "mysql",
+      "postgres",
+      "redis",
+      "sqlite"
+    ]
+  }
+]
