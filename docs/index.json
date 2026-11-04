@@ -1,0 +1,44 @@
+{
+  "format": 1,
+  "title": {
+    "en": "dsh-envdoctor",
+    "zh": "dsh-envdoctor"
+  },
+  "description": {
+    "en": "环境体检：一键审计/安装 30 种开发工具，管理用户 PATH，支持环境分享码让团队配置一致",
+    "zh": "环境体检：一键审计/安装 30 种开发工具，管理用户 PATH，支持环境分享码让团队配置一致"
+  },
+  "plugins": [
+    {
+      "name": "dsh-envdoctor",
+      "title": {
+        "en": "dsh-envdoctor",
+        "zh": "dsh-envdoctor"
+      },
+      "description": {
+        "en": "环境体检：一键审计/安装 30 种开发工具，管理用户 PATH，支持环境分享码让团队配置一致",
+        "zh": "环境体检：一键审计/安装 30 种开发工具，管理用户 PATH，支持环境分享码让团队配置一致"
+      },
+      "author": "Nannanyeye",
+      "homepage": "https://github.com/Nannanyeye/dsh-envdoctor#readme",
+      "repository": {
+        "url": "https://github.com/Nannanyeye/dsh-envdoctor"
+      },
+      "icon": "",
+      "versions": [
+        {
+          "version": "0.2.0",
+          "publishTimestamp": 1793768060,
+          "source": {
+            "type": "git",
+            "url": "https://github.com/Nannanyeye/dsh-envdoctor",
+            "commit": "5beccf087136bd7c421384319999e6734fe7aa65"
+          },
+          "engines": {
+            "dsh": ">=0.2.1-rc.1 <0.2.2-0"
+          }
+        }
+      ]
+    }
+  ]
+}
