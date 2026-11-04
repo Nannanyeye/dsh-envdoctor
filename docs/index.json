@@ -19,13 +19,25 @@
         "en": "环境体检：一键审计/安装 30 种开发工具，管理用户 PATH，支持环境分享码让团队配置一致",
         "zh": "环境体检：一键审计/安装 30 种开发工具，管理用户 PATH，支持环境分享码让团队配置一致"
       },
-      "author": "Nannanyeye",
-      "homepage": "https://github.com/Nannanyeye/dsh-envdoctor#readme",
+      "author": "ifhaoyi",
+      "homepage": "https://github.com/ifhaoyi/dsh-envdoctor#readme",
       "repository": {
         "url": "https://github.com/Nannanyeye/dsh-envdoctor"
       },
-      "icon": "",
+      "icon": "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA2NCA2NCI+PHJlY3Qgd2lkdGg9IjY0IiBoZWlnaHQ9IjY0IiByeD0iMTQiIGZpbGw9IiMwZjE3MmEiLz48cGF0aCBkPSJNMTQgMjJoMzZ2MjRhNCA0IDAgMCAxLTQgNEgxOGE0IDQgMCAwIDEtNC00eiIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjMzhiZGY4IiBzdHJva2Utd2lkdGg9IjMuNCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCIvPjxwYXRoIGQ9Ik0yNCAyMnYtNGE0IDQgMCAwIDEgNC00aDhhNCA0IDAgMCAxIDQgNHY0IiBmaWxsPSJub25lIiBzdHJva2U9IiMzOGJkZjgiIHN0cm9rZS13aWR0aD0iMy40Ii8+PHBhdGggZD0iTTE0IDMyaDM2IiBzdHJva2U9IiMzOGJkZjgiIHN0cm9rZS13aWR0aD0iMi42Ii8+PGNpcmNsZSBjeD0iMzIiIGN5PSIzMiIgcj0iMy42IiBmaWxsPSIjMzhiZGY4Ii8+PC9zdmc+",
       "versions": [
+        {
+          "version": "0.2.1",
+          "publishTimestamp": 1793768649,
+          "source": {
+            "type": "git",
+            "url": "https://github.com/Nannanyeye/dsh-envdoctor",
+            "commit": "5e70a9d79d184c616bdf3fc6e17f804483d666f0"
+          },
+          "engines": {
+            "dsh": ">=0.2.1-rc.1 <0.2.2-0"
+          }
+        },
         {
           "version": "0.2.0",
           "publishTimestamp": 1793768060,
