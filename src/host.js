@@ -1,6 +1,6 @@
 // 环境体检 · 宿主半边
 // 安装根目录可配置（默认自动选盘）；全盘扫描只做一次；稳定/最新/指定版本；用户级 PATH
-import { existsSync, mkdirSync, rmSync, statSync, writeFileSync, readFileSync, readdirSync } from 'node:fs'
+import { existsSync, mkdirSync, rmSync, statSync, writeFileSync, readFileSync, readdirSync, copyFileSync, chmodSync } from 'node:fs'
 import { join, dirname, basename } from 'node:path'
 import { spawn } from 'node:child_process'
 import { fileURLToPath } from 'node:url'
@@ -389,17 +389,48 @@ async function install(id, mode = 'stable', custom = '', log) {
     return finish({ ok, message: ok ? `${spec.label} 解压完成` : '解压失败' })
   }
 
-  if (t.kind === 'gitportable') {
-    const a = await ghAsset('git-for-windows/git', 'PortableGit-*-64-bit.7z.exe')
-    if (!a) { setProg(t.id, { stage: 'fail', error: 'GitHub 取包失败' }); return { ok: false, message: 'GitHub 连接失败（可换代理或手动装）' } }
+  // 单个可执行文件：直接下到 target/<exe>
+  if (t.kind === 'single') {
+    const name = spec.dlName || t.exe
+    const f = join(C.dl, name)
+    log?.info?.('下载 ' + spec.url)
+    const d = await dlWith(spec.url, f)
+    if (!d.ok) { setProg(t.id, { stage: 'fail', error: d.err || '下载失败' }); return { ok: false, message: '下载失败' } }
+    setProg(t.id, { stage: 'copy', text: '写入' })
+    try {
+      mkdirSync(tgt, { recursive: true })
+      const out = join(tgt, t.exe || name)
+      copyFileSync(f, out)
+      setProg(t.id, { stage: 'verify', text: '校验' })
+      if (!existsSync(out)) { setProg(t.id, { stage: 'fail', error: '文件未落地' }); return { ok: false, message: '写入失败' } }
+    } catch (e) {
+      setProg(t.id, { stage: 'fail', error: String(e.message || e) })
+      return { ok: false, message: '写入失败：' + (e.message || e) }
+    }
+    setProg(t.id, { stage: 'done', text: '完成' })
+    return finish({ ok: true, message: `${spec.label} 下载完成` })
+  }
+
+  // 7z 自解压（Git 便携版）
+  if (t.kind === '7zexe' || t.kind === 'gitportable') {
+    let a = null
+    if (spec.gh) {
+      a = await ghAsset(spec.gh.repo, spec.gh.asset, spec.gh.version)
+    } else if (spec.url) {
+      a = { url: spec.url, name: spec.dlName || 'portable.7z.exe' }
+    }
+    if (!a) { setProg(t.id, { stage: 'fail', error: '取包失败' }); return { ok: false, message: '取不到安装包（GitHub 可能限流，稍后再试）' } }
     const f = join(C.dl, a.name)
     const d = await dlWith(a.url, f)
     if (!d.ok) { setProg(t.id, { stage: 'fail', error: '下载失败' }); return { ok: false, message: '下载失败' } }
     setProg(t.id, { stage: 'extract', text: '解压' })
+    mkdirSync(tgt, { recursive: true })
     await run(f, [`-o${tgt}`, '-y'], { timeoutMs: 900000 })
-    const ok = existsSync(join(tgt, 'cmd', 'git.exe')) || existsSync(join(tgt, 'bin', 'git.exe'))
+    setProg(t.id, { stage: 'verify', text: '校验' })
+    const cands = [join(tgt, 'cmd', t.exe), join(tgt, 'bin', t.exe), join(tgt, t.exe)]
+    const ok = cands.some(existsSync)
     setProg(t.id, { stage: ok ? 'done' : 'fail', text: ok ? '完成' : '解压失败' })
-    return finish({ ok, message: ok ? 'Git 解压完成' : '解压失败' })
+    return finish({ ok, message: ok ? `${spec.label} 解压完成` : '解压失败' })
   }
 
   if (t.kind === 'chrome') {

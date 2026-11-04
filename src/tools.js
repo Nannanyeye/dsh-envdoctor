@@ -73,7 +73,9 @@ export function toolsFor(root) {
 
     const allBindirs = [...new Set([
       ...bindirs.map((d) => d.replace(/[\\/]+$/, '')),
-      ...common.map((d) => d.replace(/[\\/]+$/, '')).filter(Boolean),
+      // 只保留绝对路径（环境变量缺失时会拼出相对路径）
+      ...common.map((d) => d.replace(/[\\/]+$/, ''))
+        .filter((d) => d && /^[A-Za-z]:[\\/]/.test(d)),
     ])]
 
     return {
@@ -82,7 +84,11 @@ export function toolsFor(root) {
       category: raw.category || '其他',
       desc: raw.desc || '',
       exe: raw.exe || null,
-      prefer: raw.prefer || null,
+      // JSON 里存的是正则字符串，这里编译成 RegExp（scan.js 会调 .test）
+      prefer: (() => {
+        if (!raw.prefer) return null
+        try { return new RegExp(raw.prefer, 'i') } catch { return null }
+      })(),
       stable: (raw.versions && raw.versions.stable) || 'latest',
       versions: (raw.versions && raw.versions.presets) || null,
       kind: raw.kind || 'zip',
