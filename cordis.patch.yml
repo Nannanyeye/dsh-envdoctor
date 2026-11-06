@@ -1,4 +1,4 @@
 # 环境体检 —— DSH bundle patch
 - insert:
     - id: env-doctor
-      name: dsh-envdoctor
+      name: "@nanchengyezi/dsh-envdoctor"
