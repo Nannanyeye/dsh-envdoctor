@@ -1,4 +1,4 @@
-# 环境体检 · dsh-envdoctor
+# 环境体检 · @nanchengyezi/dsh-envdoctor
 
 给 DSH 用的 Windows 开发环境管理器。扫描本机已装的开发工具，缺失的一键装到统一目录，自动管 PATH，还能把整套环境用一个 8 位短码分享给别人。
 
@@ -13,7 +13,7 @@
 ## 安装
 
 ```
-dsh plugin add dsh-envdoctor
+dsh plugin add @nanchengyezi/dsh-envdoctor
 ```
 
 装完重启 DSH，侧栏出现「环境体检」。
