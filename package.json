@@ -1,6 +1,6 @@
 {
-  "name": "dsh-envdoctor",
-  "version": "0.2.2",
+  "name": "@nanchengyezi/dsh-envdoctor",
+  "version": "0.2.3",
   "description": "环境体检：一键审计/安装 30 种开发工具，管理用户 PATH，支持环境分享码让团队配置一致",
   "type": "module",
   "license": "MIT",
@@ -52,5 +52,8 @@
     "type": "git",
     "url": "https://github.com/Nannanyeye/dsh-envdoctor"
   },
-  "homepage": "https://github.com/Nannanyeye/dsh-envdoctor#readme"
+  "homepage": "https://github.com/Nannanyeye/dsh-envdoctor#readme",
+  "publishConfig": {
+    "access": "public"
+  }
 }
